@@ -13,6 +13,14 @@ This framework uses the FaceTime infrastructure to synchronise your app’s acti
 - We then need to create a ***GroupSessionMessenger*** from the given session, which is basically responsible for receiving and sending all data.
 - Once the sent message has been received from the other device , we can update the UI.
 
+
+Below is an example where we share data between a mac and iPhone. In this case when the user taps on player1,  `Player 1 tapped` should be shown on both devices.
+
+<img width="800" alt="Screenshot 2022-12-14 at 5 49 08 PM" src="https://user-images.githubusercontent.com/38100299/207595013-ec7176d8-4dfe-4bf9-821d-3cc4b09ceda8.png">
+
+
+
+
 Note: **GroupSessionMessenger** is meant for smaller payloads, so if you try to stream larger assets like files or videos , an error will be thrown.
 
 ****Supporting Coordinated Media Playback****
@@ -27,3 +35,13 @@ Note: **GroupSessionMessenger** is meant for smaller payloads, so if you try to 
 - When the sample receives a new session, it sets it as the active group session, and then joins it, which makes the app eligible to participate in the session. Then it subscribes to the session’s activity publisher and, when it receives a new value.
 - To enable group playback is to access the player’s coordinator and connect it with the group session. It does this by calling the coordinator object’s [coordinateWithSession(_:)](https://developer.apple.com/documentation/avfoundation/avplaybackcoordinator/3787796-coordinatewithsession)
  method, which connects it with the coordinators of other participants in the session.
+ 
+ Example: Here we are syncing a video on an iPhone and Mac.  When the video is paused, stopped , moved back or forward on one device, it should reflect on the other.
+ 
+ 
+ <img width="800" alt="Screenshot 2022-12-14 at 5 49 56 PM" src="https://user-images.githubusercontent.com/38100299/207596238-da40ae44-a6da-41d8-aed9-7dec57fb8c42.png">
+
+ 
+ 
+ 
+ 
