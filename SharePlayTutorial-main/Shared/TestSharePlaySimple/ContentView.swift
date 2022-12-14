@@ -15,7 +15,7 @@ struct ContentView: View {
 
 	//Video Synchronization Implementation!!
 
-	@State private var subscriptions = Set<AnyCancellable>()
+	//@State private var subscriptions = Set<AnyCancellable>()
 	@State var player = AVPlayer()
 
 	// The group session to coordinate playback with.
@@ -77,13 +77,13 @@ struct ContentView: View {
 		   .task {
 			   for await session in MovieWatchingActivity.sessions() {
 				   groupSession = session
-				   subscriptions.removeAll()
-
-				   session.$activity
-					   .sink { activity in
-						   print("Activity Changed: \(activity.metadata.title ?? "No title for this video")")
-					   }
-					   .store(in: &subscriptions)
+//				   subscriptions.removeAll()
+//
+//				   session.$activity
+//					   .sink { activity in
+//						   print("Activity Changed: \(activity.metadata.title ?? "No title for this video")")
+//					   }
+//					   .store(in: &subscriptions)
 
 				   session.join()
 			   }
@@ -92,18 +92,18 @@ struct ContentView: View {
 
 
 
-	private mutating func configureGroupSession(_ session: GroupSession<MovieWatchingActivity>) {
-		self.groupSession = session
-		subscriptions.removeAll()
-
-		session.$activity
-			.sink { activity in
-				print("Activity Changed: \(activity.metadata.title ?? "No title for this video")")
-			}
-			.store(in: &subscriptions)
-
-		session.join()
-	  }
+//	private mutating func configureGroupSession(_ session: GroupSession<MovieWatchingActivity>) {
+//		self.groupSession = session
+//		subscriptions.removeAll()
+//
+//		session.$activity
+//			.sink { activity in
+//				print("Activity Changed: \(activity.metadata.title ?? "No title for this video")")
+//			}
+//			.store(in: &subscriptions)
+//
+//		session.join()
+//	  }
 
 
 	func preparesToPlay(_ movie: Movie) {
