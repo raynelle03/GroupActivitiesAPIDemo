@@ -32,7 +32,7 @@ Note: **GroupSessionMessenger** is meant for smaller payloads, so if you try to 
  indicates that group playback isn’t active.
 - A result of [GroupActivityActivationResult.activationPreferred](https://developer.apple.com/documentation/groupactivities/groupactivityactivationresult/activationpreferred) indicates that group playback is possible, and the user wants to start a group activity. When this occurs, we can call the activity’s activate() method, which starts a group session and shares the activity with the group.
 - When the App activates a activity, the system creates a group session. It accesses the session by calling the [sessions()](https://developer.apple.com/documentation/groupactivities/groupactivity/sessions())method, which returns sessions for the activity as an asynchronous sequence.
-- When the sample receives a new session, it sets it as the active group session, and then joins it, which makes the app eligible to participate in the session. Then it subscribes to the session’s activity publisher and, when it receives a new value.
+- When the sample receives a new session, it sets it as the active group session, and then joins it, which makes the app eligible to participate in the session. 
 - To enable group playback is to access the player’s coordinator and connect it with the group session. It does this by calling the coordinator object’s [coordinateWithSession(_:)](https://developer.apple.com/documentation/avfoundation/avplaybackcoordinator/3787796-coordinatewithsession)
  method, which connects it with the coordinators of other participants in the session.
  
