@@ -29,7 +29,7 @@ Note: **GroupSessionMessenger** is meant for smaller payloads, so if you try to 
 - Create an activity.
 - We then call [prepareForActivation()](https://developer.apple.com/documentation/groupactivities/groupactivity/prepareforactivation()) method, which enables the system to present an interface for the user to select  their preferred action.
 - The call returns a result that indicates the appropriate action to take. A result of [GroupActivityActivationResult.activationDisabled](https://developer.apple.com/documentation/groupactivities/groupactivityactivationresult/activationdisabled)
- indicates that group playback isn’t active, or the user selects to play the movie locally only.
+ indicates that group playback isn’t active.
 - A result of [GroupActivityActivationResult.activationPreferred](https://developer.apple.com/documentation/groupactivities/groupactivityactivationresult/activationpreferred) indicates that group playback is possible, and the user wants to start a group activity. When this occurs, the sample calls the activity’s activate() method, which starts a group session and shares the activity with the group.
 - When the App activates a activity, the system creates a group session. It accesses the session by calling the [sessions()](https://developer.apple.com/documentation/groupactivities/groupactivity/sessions())method, which returns sessions for the activity as an asynchronous sequence.
 - When the sample receives a new session, it sets it as the active group session, and then joins it, which makes the app eligible to participate in the session. Then it subscribes to the session’s activity publisher and, when it receives a new value.
